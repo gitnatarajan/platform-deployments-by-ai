@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medusa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medusa
+  template:
+    metadata:
+      labels:
+        app: medusa
+    spec:
+      containers:
+      - name: medusa
+        image: <image-name>
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
