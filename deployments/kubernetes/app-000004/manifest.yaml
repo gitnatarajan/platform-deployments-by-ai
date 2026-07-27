@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+    spec:
+      containers:
+      - name: tensorflow-container
+        image: tensorflow/tensorflow:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+          limits:
+            cpu: 200m
+            memory: 1024Mi
+        restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tensorflow-service
+spec:
+  selector:
+    app: tensorflow
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
