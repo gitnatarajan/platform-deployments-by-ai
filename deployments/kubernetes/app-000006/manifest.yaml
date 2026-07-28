@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: previous-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: previous-app
+  template:
+    metadata:
+      labels:
+        app: previous-app
+    spec:
+      containers:
+      - name: previous-container
+        image: previous-image
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
