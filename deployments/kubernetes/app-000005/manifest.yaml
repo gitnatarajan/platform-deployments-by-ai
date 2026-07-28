@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow-deployment
+labels:
+  app: tensorflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+    spec:
+      containers:
+      - name: tensorflow-container
+        image: tensorflow/tensorflow:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+          limits:
+            cpu: 200m
+            memory: 1024Mi
+        imagePullPolicy: IfNotPresent
