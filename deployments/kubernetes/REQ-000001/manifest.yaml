@@ -19,4 +19,4 @@ spec:
         - containerPort: 80
 
 
-This YAML file defines a Kubernetes Deployment named `nginx` with one replica. The deployment uses the official Nginx Docker image and exposes port 80.
+#This YAML file defines a Kubernetes Deployment named `nginx` with one replica. The deployment uses the official Nginx Docker image and exposes port 80.
