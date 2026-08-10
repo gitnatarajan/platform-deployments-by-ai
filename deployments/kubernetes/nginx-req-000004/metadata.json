@@ -1,0 +1,21 @@
+{
+  "request_id": "REQ-000004",
+  "request": "deploy nginx with single replica in namespace testingns",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx",
+  "action": "create",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "replicas": 1,
+    "namespace": "testingns",
+    "application_name": "nginx",
+    "image": "nginx"
+  },
+  "namespace": "testingns"
+}
