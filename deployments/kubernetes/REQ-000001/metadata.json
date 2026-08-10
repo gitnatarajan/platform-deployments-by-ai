@@ -1,0 +1,14 @@
+{
+  "request_id": "REQ-000001",
+  "request": "deploy nginx with replica 1",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx",
+  "action": "create",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  }
+}
