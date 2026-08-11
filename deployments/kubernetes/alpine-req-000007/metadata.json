@@ -1,0 +1,22 @@
+{
+  "request_id": "REQ-000007",
+  "request": "deploy alpine",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "alpine",
+  "action": "deploy",
+  "model": "llama3.1:8b",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "alpine",
+    "image_repository": "alpine",
+    "namespace": "testnamespace",
+    "image_tag": "latest",
+    "image": "alpine:latest"
+  },
+  "namespace": "testnamespace"
+}
