@@ -1,0 +1,23 @@
+{
+  "request_id": "REQ-000011",
+  "request": "deploy httpd",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "httpd",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "httpd",
+    "image_repository": "httpd",
+    "image_tag": "2.4-alpine",
+    "image": "httpd:2.4-alpine",
+    "image_pull_confirmation": true,
+    "image_cache_confirmation": false
+  },
+  "namespace": ""
+}
