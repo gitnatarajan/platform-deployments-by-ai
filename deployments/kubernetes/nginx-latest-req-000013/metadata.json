@@ -1,0 +1,23 @@
+{
+  "request_id": "REQ-000013",
+  "request": "deploy nginx:latest",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx:latest",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "nginx",
+    "image_repository": "nginx",
+    "image_tag": "latest",
+    "image": "nginx:latest",
+    "image_pull_confirmation": true,
+    "image_cache_confirmation": false
+  },
+  "namespace": ""
+}
