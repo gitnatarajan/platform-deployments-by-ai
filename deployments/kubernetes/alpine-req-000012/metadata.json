@@ -1,0 +1,23 @@
+{
+  "request_id": "REQ-000012",
+  "request": "deploy alpine",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "alpine",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "alpine",
+    "image_repository": "alpine",
+    "image_tag": "3.21",
+    "image": "alpine:3.21",
+    "image_pull_confirmation": true,
+    "image_cache_confirmation": false
+  },
+  "namespace": ""
+}
