@@ -1,0 +1,24 @@
+{
+  "request_id": "REQ-000019",
+  "request": "deploy nginx testing as namespace namespace=\"testing\"",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx",
+  "action": "deploy",
+  "model": "llama3.1:8b",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "nginx",
+    "image_repository": "nginx",
+    "image_tag": "latest",
+    "image": "harbor.hpe.local:8888/ai-deployments/nginx:latest",
+    "name": "testing",
+    "type": "namespace",
+    "namespace": "testing"
+  },
+  "namespace": "testing"
+}
