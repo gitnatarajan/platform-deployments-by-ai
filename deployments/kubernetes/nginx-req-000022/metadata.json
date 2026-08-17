@@ -1,0 +1,22 @@
+{
+  "request_id": "REQ-000022",
+  "request": "deploy nginx",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "nginx",
+    "image_repository": "nginx",
+    "namespace": "test321",
+    "image_tag": "latest",
+    "image": "harbor.hpe.local:8888/ai-deployments/nginx:latest"
+  },
+  "namespace": "test321"
+}
