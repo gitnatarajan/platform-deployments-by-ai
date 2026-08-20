@@ -1,0 +1,25 @@
+{
+  "request_id": "REQ-000039",
+  "request": "deploy alpine",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "alpine",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "alpine",
+    "image_repository": "alpine",
+    "replicas": 1,
+    "port": 80,
+    "namespace": "testinghhh",
+    "image_tag": "latest",
+    "image": "harbor.hpe.local:8888/platform/alpine:latest",
+    "resolved_image": "harbor.hpe.local:8888/platform/alpine:latest"
+  },
+  "namespace": "testinghhh"
+}
