@@ -1,0 +1,25 @@
+{
+  "request_id": "REQ-000031",
+  "request": "deploy nginx",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "nginx",
+  "action": "deploy",
+  "model": "",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "nginx",
+    "image_repository": "nginx",
+    "replicas": 1,
+    "port": 80,
+    "namespace": "testns",
+    "image_tag": "latest",
+    "image": "harbor.hpe.local:8888/platform/nginx:latest",
+    "resolved_image": "harbor.hpe.local:8888/platform/nginx:latest"
+  },
+  "namespace": "testns"
+}
