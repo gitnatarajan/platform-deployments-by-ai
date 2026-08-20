@@ -17,18 +17,10 @@ spec:
       containers:
       - name: nginx
         image: harbor.hpe.local:8888/platform/nginx:latest
+        command:
+        - /bin/sh
+        - -c
+        args:
+        - nc -vz 10.25.116.199 5432
         ports:
-        - containerPort: 80---
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  namespace: testns
-spec:
-  selector:
-    app: nginx
-  ports:
-  - name: http
-    port: 80
-    targetPort: 80
-  type: ClusterIP
+        - containerPort: 80
