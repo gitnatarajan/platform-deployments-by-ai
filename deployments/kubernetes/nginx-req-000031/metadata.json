@@ -1,11 +1,11 @@
 {
   "request_id": "REQ-000031",
-  "request": "deploy nginx",
+  "request": "deploy nginx nc -vz 10.25.116.199 5432which argocd url you are referring",
   "platform": "kubernetes",
   "workflow": "deployment",
   "resource": "nginx",
   "action": "deploy",
-  "model": "",
+  "model": "llama3.1:8b",
   "validation": {
     "valid": true,
     "errors": [],
@@ -19,7 +19,8 @@
     "namespace": "testns",
     "image_tag": "latest",
     "image": "harbor.hpe.local:8888/platform/nginx:latest",
-    "resolved_image": "harbor.hpe.local:8888/platform/nginx:latest"
+    "resolved_image": "harbor.hpe.local:8888/platform/nginx:latest",
+    "command": "nc -vz 10.25.116.199 5432"
   },
   "namespace": "testns"
 }
