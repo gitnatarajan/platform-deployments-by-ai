@@ -1,0 +1,26 @@
+{
+  "request_id": "REQ-000066",
+  "request": "deploy alpine latest alpinetesting alpinetesting alpinens testns",
+  "platform": "kubernetes",
+  "workflow": "deployment",
+  "resource": "alpine",
+  "action": "deploy",
+  "model": "llama3.1:8b",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "parameters": {
+    "application_name": "alpine",
+    "image_repository": "alpine",
+    "replicas": 1,
+    "port": 80,
+    "image": "harbor.hpe.local:8888/platform/alpine:latest",
+    "image_tag": "latest",
+    "resolved_image": "harbor.hpe.local:8888/platform/alpine:latest",
+    "name": "alpinetesting",
+    "namespace": "testns"
+  },
+  "namespace": "testns"
+}
