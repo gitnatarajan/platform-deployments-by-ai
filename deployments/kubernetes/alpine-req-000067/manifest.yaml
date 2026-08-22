@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpine
+  namespace: testns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      namespace: testns
+    spec:
+      containers:
+      - name: alpine
+        image: harbor.hpe.local:8888/platform/alpine:latest
+        ports:
+        - containerPort: 80
