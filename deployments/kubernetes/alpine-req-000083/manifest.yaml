@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: platformtest---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpine
+  namespace: platformtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      namespace: platformtest
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:latest
+        ports:
+        - containerPort: 80---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpine
+  namespace: platformtest
+spec:
+  selector:
+    app: alpine
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: ClusterIP
