@@ -1,0 +1,13 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBucket
+metadata:
+  name: s3-bucket
+  namespace: default
+spec:
+  pool: ai-pool
+  storageClassName: rook-ceph-block
+  metadataPool:
+    failureDomain: host
+  dataPool:
+    replicated:
+      size: 1
