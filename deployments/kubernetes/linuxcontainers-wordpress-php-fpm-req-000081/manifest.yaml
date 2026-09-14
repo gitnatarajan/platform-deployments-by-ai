@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wordppress
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linuxcontainers
+  namespace: wordppress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linuxcontainers
+  template:
+    metadata:
+      labels:
+        app: linuxcontainers
+      namespace: wordppress
+    spec:
+      containers:
+      - name: wordpress-php-fpm
+        image: linuxcontainers/wordpress-php-fpm:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: linuxcontainers
+  namespace: wordppress
+spec:
+  selector:
+    app: linuxcontainers
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: ClusterIP
