@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: scratch
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scratch
+  namespace: scratch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scratch
+  template:
+    metadata:
+      labels:
+        app: scratch
+      namespace: scratch
+    spec:
+      containers:
+      - name: scratch
+        image: glen/scratch:latest
+        ports:
+        - containerPort: 80
