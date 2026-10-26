@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tensortest
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow
+  namespace: tensortest
+  labels:
+    app: tensorflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+      namespace: tensortest
+    spec:
+      containers:
+      - name: tensorflow
+        image: tensorflow/build:2.19-python3.10
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tensorflow
+  namespace: tensortest
+spec:
+  type: ClusterIP
+  selector:
+    app: tensorflow
+  ports:
+  - port: 80
+    targetPort: 80
