@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tensorcustom
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow
+  namespace: tensorcustom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+      namespace: tensorcustom
+    spec:
+      containers:
+      - name: tensorflow
+        image: tensorflow/serving:2.21.0:2.21.0
+        ports:
+        - containerPort: 80
