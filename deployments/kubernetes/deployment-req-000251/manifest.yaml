@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: testuitensor
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow
+  namespace: testuitensor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+      namespace: testuitensor
+    spec:
+      containers:
+      - name: tensorflow
+        image: rocm/tensorflow:rocm10.1-ubuntu22.04-py3.12-tf2.20
+        ports:
+        - containerPort: 80
