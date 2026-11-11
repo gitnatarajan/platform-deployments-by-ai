@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: testmedusa
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medusa
+  namespace: testmedusa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medusa
+  template:
+    metadata:
+      labels:
+        app: medusa
+      namespace: testmedusa
+    spec:
+      containers:
+      - name: medusa
+        image: medusa:0.30.0
+        ports:
+        - containerPort: 80
