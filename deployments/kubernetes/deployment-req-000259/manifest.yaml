@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nov12alpine
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpine
+  namespace: nov12alpine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      namespace: nov12alpine
+    spec:
+      containers:
+      - name: alpine-container
+        image: alpine:latest
+        ports:
+        - containerPort: 80
